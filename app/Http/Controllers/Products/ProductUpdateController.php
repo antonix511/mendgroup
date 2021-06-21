@@ -10,8 +10,8 @@ class ProductUpdateController extends Controller
 {
     private $service;
 
-    public function __construct(ProductUpdateService $service, $catalogue)
+    public function __construct(ProductUpdateService $service)
     {
-
+        $this->service = $service;
     }
 }
