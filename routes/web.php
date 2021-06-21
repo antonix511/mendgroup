@@ -11,6 +11,11 @@ use App\Http\Controllers\Client\ClientDeleteController;
 use App\Http\Controllers\Client\ClientUpdateController;
 use App\Http\Controllers\Client\ClientGetController;
 use App\Http\Controllers\Client\ClientCreateController;
+use App\Http\Controllers\Worker\WorkerCreateController;
+use App\Http\Controllers\Worker\WorkerUpdateController;
+use App\Http\Controllers\Worker\WorkerDeleteController;
+use App\Http\Controllers\Worker\WorkerListController;
+use App\Http\Controllers\Worker\WorkerGetController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,5 +44,12 @@ Route::prefix('clients')->group(function () {
     Route::post('/', [ClientCreateController::class, 'index'])->name('clients.create');
     Route::delete('/{document}', [ClientDeleteController::class, 'index'])->name('clients.delete');
     Route::get('/{document}', [ClientGetController::class, 'index'])->name('clients.get');
+});
+
+Route::prefix('workers')->group(function () {
+    Route::get('/', [WorkerListController::class, 'index'])->name('worker.list');
+    Route::post('/', [WorkerCreateController::class, 'index'])->name('worker.create');
+    Route::delete('/{id}', [WorkerDeleteController::class, 'index'])->name('worker.delete');
+    Route::get('/{id}', [WorkerGetController::class, 'index'])->name('worker.get');
 });
 
